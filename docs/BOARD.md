@@ -29,8 +29,10 @@ eller nummeret på den rapport opgaven kom af.>
 
 | Emne |
 |---|
-| Læg tabeldefinitionerne for stg, dw og meta i repoet |
 | Script der lægger procedurerne i databasen |
+| Fuld database fra bunden med faste opslagsdata |
+| Kontaktperson-label på stakken |
+| Fælles Docker-workflow via /agents:workflow |
 | Flyt hardcodede skole- og distriktskoder ud af procedurerne |
 | Bring README i takt med kontrakten og det der findes |
 | Tilføj kontraktens linjer til .gitignore og opret .gitattributes |
@@ -47,6 +49,7 @@ ellers fyldes `docs/tasks/` med halve idéer.>
 
 | Nr. | Titel | Udfald |
 |---|---|---|
+| task-0001 | Tabeldefinitionerne ind i repoet | bygget |
 
 <`Udfald` er `bygget` eller `afvist`. Flyt hertil når architect har vurderet
 opgaven — ikke når udrulningen er sket; udrulning er ikke en status.
