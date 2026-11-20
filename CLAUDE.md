@@ -68,10 +68,13 @@ utils/
 sql/
   meta/                 Kørselslog: start/afslut kørsel og trin
   dw/                   usp_master + én procedure pr. dimension/fakta + oprydning
+  tables/               Tabeldefinitioner: schemas.sql + én fil pr. tabel under stg/, dw/, meta/
 Dockerfile, docker-compose.yaml, .github/workflows/docker-publish.yml
 ```
 
-**Tabeldefinitionerne (`CREATE TABLE`) for `stg`, `dw` og `meta` ligger ikke i repoet** — kun i databasen. Det samme gælder de dimensioner procedurerne læser men ikke fylder: `dw.dim_date`, `dim_subject`, `dim_discipline`, `dim_exam_type`, `dim_class_type`, `dim_action_type`, `dim_referral_reason`, `dim_event_type` og `dim_school_district` (statisk, lagt ind ved et migreringsscript der heller ikke er her).
+**Tabeldefinitionerne (`CREATE TABLE`) for `stg`, `dw` og `meta` ligger i `sql/tables/`** — én fil pr. tabel i `sql/tables/<skema>/<tabel>.sql`, og skemaerne i `sql/tables/schemas.sql`. De er renset fra en SSMS-eksport og rummer kun struktur: kolonner, nøgler, indeks, standardværdier og kontroller. Rækkefølgen de skal oprettes i (fremmednøgler), står ikke nogen steder. Ændres en tabel, rettes dens fil og køres i hånden mod databasen, som procedurerne.
+
+**Indholdet** af de dimensioner procedurerne læser men ikke fylder, ligger ikke i repoet: `dw.dim_date`, `dim_subject`, `dim_discipline`, `dim_exam_type`, `dim_class_type`, `dim_action_type`, `dim_referral_reason`, `dim_event_type`, `dim_absence_reason` (krævet af fremmednøglerne på de to fraværsfakta) og `dim_school_district` (statisk, lagt ind ved et migreringsscript der heller ikke er her).
 
 ## Dataflow
 
