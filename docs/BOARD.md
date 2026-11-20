@@ -21,6 +21,7 @@ en rapport der har stået her i dagevis, er et fund på vej til at blive glemt.>
 
 | Nr. | Titel | Status | Kilde |
 |---|---|---|---|
+| task-0001 | Tabeldefinitionerne ind i repoet | planlagt | interview |
 
 <`Status` er `planlagt`, `i-gang` eller `afsluttet`. `Kilde` er `interview`
 eller nummeret på den rapport opgaven kom af.>
@@ -29,8 +30,9 @@ eller nummeret på den rapport opgaven kom af.>
 
 | Emne |
 |---|
-| Læg tabeldefinitionerne for stg, dw og meta i repoet |
 | Script der lægger procedurerne i databasen |
+| Fuld database fra bunden med faste opslagsdata |
+| Kontaktperson-label på stakken |
 | Flyt hardcodede skole- og distriktskoder ud af procedurerne |
 | Bring README i takt med kontrakten og det der findes |
 | Tilføj kontraktens linjer til .gitignore og opret .gitattributes |
