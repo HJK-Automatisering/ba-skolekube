@@ -10,6 +10,9 @@ Her hører også **afvisninger**: et fund der ikke bliver en opgave, skal have s
 
 | Dato | Nr. | Beslutning | Begrundelse | Rolle |
 |---|---|---|---|---|
+| 2026-11-20 | task-0001 | Afsluttet som bygget; eksporten er komplet uden ekstra indeks | Forespørgsel mod databasen viste ingen indeks ud over primærnøgler og unikke nøgler | architect |
+| 2026-11-20 | task-0001 | Developers fund 2 (skolenavne og kommunens navn i procedureheadere) hører under emnet om hardcodede skole- og distriktskoder | Samme slags værdi i samme filer; tages i ét greb | architect |
+| 2026-11-20 | task-0001 | Developers fund 1 (manglende `.gitattributes`) hører under emnet om `.gitignore` og `.gitattributes` | Står allerede på BOARD | architect |
 | 2026-11-20 | — | Det fælles Docker-workflow sættes på som emne, tages efter task-0001 | Nuværende workflow er GitHubs standardskabelon og virker; ændring af CI i drift skal ikke presses ind før tabeldefinitionerne | architect |
 | 2026-11-20 | task-0001 | Tabeldefinitionerne placeres under `sql/tables/<skema>/` og verificeres mod eksporten, ikke ved kørsel | Adskilt fra procedurerne med samme navngivning; der findes ingen tom database, og produktion røres ikke | architect |
 | 2026-11-20 | task-0001 | Kilden er en eksport fra SSMS, lavet af mennesket | Præcis på nøgler og indeks, ingen ny kode at vedligeholde. Afvist: script der læser databasens katalog | architect |
