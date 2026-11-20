@@ -1,7 +1,7 @@
 ---
 nummer: task-0001
 titel: Tabeldefinitionerne ind i repoet
-status: planlagt
+status: i-gang
 kilde: interview
 oprettet: 2026-11-20
 ---
