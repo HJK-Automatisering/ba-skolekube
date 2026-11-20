@@ -21,7 +21,6 @@ en rapport der har stået her i dagevis, er et fund på vej til at blive glemt.>
 
 | Nr. | Titel | Status | Kilde |
 |---|---|---|---|
-| task-0002 | Procedurerne lægges i databasen ved opstart | planlagt | interview |
 
 <`Status` er `planlagt`, `i-gang` eller `afsluttet`. `Kilde` er `interview`
 eller nummeret på den rapport opgaven kom af.>
@@ -50,6 +49,7 @@ ellers fyldes `docs/tasks/` med halve idéer.>
 | Nr. | Titel | Udfald |
 |---|---|---|
 | task-0001 | Tabeldefinitionerne ind i repoet | bygget |
+| task-0002 | Procedurerne lægges i databasen ved opstart | bygget |
 
 <`Udfald` er `bygget` eller `afvist`. Flyt hertil når architect har vurderet
 opgaven — ikke når udrulningen er sket; udrulning er ikke en status.

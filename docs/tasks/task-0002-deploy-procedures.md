@@ -1,7 +1,7 @@
 ---
 nummer: task-0002
 titel: Procedurerne lægges i databasen ved opstart
-status: i-gang
+status: afsluttet
 kilde: interview
 oprettet: 2026-11-20
 ---
