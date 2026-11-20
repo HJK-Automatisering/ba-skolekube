@@ -10,6 +10,9 @@ Her hører også **afvisninger**: et fund der ikke bliver en opgave, skal have s
 
 | Dato | Nr. | Beslutning | Begrundelse | Rolle |
 |---|---|---|---|---|
+| 2026-11-20 | task-0002 | Fejl ved opstart stopper programmet med fejlkode | Ny kode må ikke køre mod gamle procedurer. Afvist: log og fortsæt | architect |
+| 2026-11-20 | task-0002 | Samme databasebruger som ETL'en; rettigheder gives af mennesket før udrulning | Ingen nye hemmeligheder på stakken. Afvist: separat bruger. Mennesket vidste ikke om rettigheden findes | architect |
+| 2026-11-20 | task-0002 | Procedurerne lægges i databasen ved opstart af containeren | Passer altid til imaget der kører. Afvist: script der køres i hånden. Erstatter beslutningen om manuel udrulning fra samme dag | architect |
 | 2026-11-20 | task-0001 | Afsluttet som bygget; eksporten er komplet uden ekstra indeks | Forespørgsel mod databasen viste ingen indeks ud over primærnøgler og unikke nøgler | architect |
 | 2026-11-20 | task-0001 | Developers fund 2 (skolenavne og kommunens navn i procedureheadere) hører under emnet om hardcodede skole- og distriktskoder | Samme slags værdi i samme filer; tages i ét greb | architect |
 | 2026-11-20 | task-0001 | Developers fund 1 (manglende `.gitattributes`) hører under emnet om `.gitignore` og `.gitattributes` | Står allerede på BOARD | architect |

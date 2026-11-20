@@ -21,6 +21,7 @@ en rapport der har stået her i dagevis, er et fund på vej til at blive glemt.>
 
 | Nr. | Titel | Status | Kilde |
 |---|---|---|---|
+| task-0002 | Procedurerne lægges i databasen ved opstart | planlagt | interview |
 
 <`Status` er `planlagt`, `i-gang` eller `afsluttet`. `Kilde` er `interview`
 eller nummeret på den rapport opgaven kom af.>
@@ -29,7 +30,6 @@ eller nummeret på den rapport opgaven kom af.>
 
 | Emne |
 |---|
-| Script der lægger procedurerne i databasen |
 | Fuld database fra bunden med faste opslagsdata |
 | Kontaktperson-label på stakken |
 | Fælles Docker-workflow via /agents:workflow |
