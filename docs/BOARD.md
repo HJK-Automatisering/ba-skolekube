@@ -33,6 +33,7 @@ eller nummeret på den rapport opgaven kom af.>
 | Script der lægger procedurerne i databasen |
 | Fuld database fra bunden med faste opslagsdata |
 | Kontaktperson-label på stakken |
+| Fælles Docker-workflow via /agents:workflow |
 | Flyt hardcodede skole- og distriktskoder ud af procedurerne |
 | Bring README i takt med kontrakten og det der findes |
 | Tilføj kontraktens linjer til .gitignore og opret .gitattributes |
