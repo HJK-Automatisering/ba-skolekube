@@ -10,6 +10,8 @@ services:
     restart: on-failure
     environment:
       - TZ=Europe/Copenhagen
+    labels:
+      hjk.kontakt: ${CONTACT_EMAIL}
 volumes:
   filer-istskole360:
     external: true

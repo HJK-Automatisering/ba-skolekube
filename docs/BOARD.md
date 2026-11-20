@@ -30,7 +30,6 @@ eller nummeret på den rapport opgaven kom af.>
 | Emne |
 |---|
 | Fuld database fra bunden med faste opslagsdata |
-| Kontaktperson-label på stakken |
 | Fælles Docker-workflow via /agents:workflow |
 | Flyt hardcodede skole- og distriktskoder ud af procedurerne |
 | Bring README i takt med kontrakten og det der findes |
@@ -50,6 +49,7 @@ ellers fyldes `docs/tasks/` med halve idéer.>
 |---|---|---|
 | task-0001 | Tabeldefinitionerne ind i repoet | bygget |
 | task-0002 | Procedurerne lægges i databasen ved opstart | bygget |
+| task-0003 | Stakken har en kontaktperson | bygget |
 
 <`Udfald` er `bygget` eller `afvist`. Flyt hertil når architect har vurderet
 opgaven — ikke når udrulningen er sket; udrulning er ikke en status.
