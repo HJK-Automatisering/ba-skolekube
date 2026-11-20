@@ -1,7 +1,7 @@
 ---
 nummer: task-0003
 titel: Stakken har en kontaktperson
-status: i-gang
+status: afsluttet
 kilde: interview
 oprettet: 2026-11-20
 ---

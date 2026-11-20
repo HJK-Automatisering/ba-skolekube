@@ -10,6 +10,7 @@ Her hører også **afvisninger**: et fund der ikke bliver en opgave, skal have s
 
 | Dato | Nr. | Beslutning | Begrundelse | Rolle |
 |---|---|---|---|---|
+| 2026-11-20 | task-0003 | Afsluttet som bygget; README har fået `CONTACT_EMAIL`. Ingen udgivelse | Labelen er driftsmetadata i compose-filen, ikke ændret adfærd i programmet. Developers fund om .gitattributes hører under det emne | architect |
 | 2026-11-20 | task-0003 | Kontaktlabelen sættes i den eksisterende compose-fil med `${CONTACT_EMAIL}`; adressen sættes af mennesket på stakken | Kontrakten fastlægger formen; intet at interviewe om. Afvist: ny compose-fil til udrulning — hører til emnet om fælles Docker-workflow | architect |
 | 2026-11-20 | task-0002 | Udgivet som 1.1.0 (tag `v1.1.0`) | Ny funktion i produktionskoden: procedurerne lægges i databasen ved opstart; den daglige kørsel virker uændret. Første tag i repoet | architect |
 | 2026-11-20 | task-0002 | Afsluttet som bygget; README rettet: procedurerne lægges ved opstart, og databasebrugeren skal have rettigheden | Alle punkter i Færdig når holder i prøven uden database; første rigtige prøve er næste opstart | architect |

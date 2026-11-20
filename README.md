@@ -99,6 +99,7 @@ docker compose stop
 | `FILE_PATH` | Sti til Tabulex-filer | `/shr/ISTSkole360` |
 | `RUN_AT` | Kørselstidspunkt (scheduler) | `04:00` |
 | `RUN_NOW` | Kør straks uden scheduler | `false` |
+| `CONTACT_EMAIL` | Kontaktperson for stakken. Får besked fra overvågningen af Docker-værten, når containeren er gået ned, og en ugentlig rapport om sårbarheder. Sættes på stakken i Portainer | — |
 
 ## Projektstruktur
 
