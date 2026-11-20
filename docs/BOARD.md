@@ -29,7 +29,6 @@ eller nummeret på den rapport opgaven kom af.>
 
 | Emne |
 |---|
-| Script der lægger procedurerne i databasen |
 | Fuld database fra bunden med faste opslagsdata |
 | Kontaktperson-label på stakken |
 | Fælles Docker-workflow via /agents:workflow |
@@ -50,6 +49,7 @@ ellers fyldes `docs/tasks/` med halve idéer.>
 | Nr. | Titel | Udfald |
 |---|---|---|
 | task-0001 | Tabeldefinitionerne ind i repoet | bygget |
+| task-0002 | Procedurerne lægges i databasen ved opstart | bygget |
 
 <`Udfald` er `bygget` eller `afvist`. Flyt hertil når architect har vurderet
 opgaven — ikke når udrulningen er sket; udrulning er ikke en status.

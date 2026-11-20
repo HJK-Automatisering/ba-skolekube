@@ -58,11 +58,9 @@ python main.py
 
 Sæt `RUN_NOW=true` i `.env` for at eksekvere med det samme uden at afvente scheduleren.
 
-Deploy alle stored procedures til databasen:
+Databaseprocedurerne lægges i databasen automatisk, hver gang programmet starter — før den første kørsel. Der skal ikke gøres noget i hånden.
 
-```bash
-python deploy_procedures.py
-```
+Kan de ikke lægges i databasen, stopper programmet med en fejl, og loggen siger hvilken fil der fejlede. I Docker starter containeren så forfra, indtil fejlen er rettet. Den databasebruger programmet logger ind med, skal derfor have lov til at oprette og ændre procedurer i datavarehuset og kørselsloggen.
 
 ## Docker
 

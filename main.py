@@ -17,6 +17,7 @@ import schedule
 from dotenv import load_dotenv
 from sqlalchemy.engine import Engine
 
+from utils.deploy_procedures import deploy_procedures
 from utils.get_engine import get_engine
 from utils.load_stg import load_all_stg_tables
 from utils.run_etl import run_etl
@@ -62,6 +63,8 @@ def main() -> None:
 
 if __name__ == '__main__':
     setup_logging()
+    startup_engine: Engine = get_engine()
+    deploy_procedures(startup_engine)
     run_now: bool = os.getenv('RUN_NOW', 'false').lower() == 'true'
     if run_now:
         logger.info('RUN_NOW=true — executing immediately')
