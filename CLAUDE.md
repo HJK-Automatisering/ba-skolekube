@@ -51,16 +51,17 @@ docker compose up --build
 docker compose stop
 ```
 
-Læg procedurerne i databasen: **i hånden, fil for fil**, fx ved at åbne filen i SSMS mod `$DB_SERVER` / `$DB_NAME` og køre den. Alle filer er `CREATE OR ALTER ... GO`, så de kan køres igen. Kør den ændrede procedure — og `dw/usp_master.sql`, hvis et trin er tilføjet eller fjernet. Der findes intet deploy-script (README nævner et, men det er aldrig committet).
+Procedurerne lægges i databasen **ved opstart**: `main.py` kalder `deploy_procedures` (i `utils/deploy_procedures.py`) før scheduleren eller `RUN_NOW`-kørslen. Alle filer i `sql/meta/` og derefter `sql/dw/`, alfabetisk, deles ved `GO`-linjer og køres i én transaktion med samme databasebruger som ETL'en. Fejler én, rulles alle tilbage, filen og fejlen logges, og programmet stopper med en fejlkode uden at køre ETL'en. Der lægges intet i hånden længere; en ændret procedure kommer i databasen når containeren starter med det nye image. `sql/tables/` lægges ikke i databasen.
 
 Tests, linter og formatter: **findes ikke.**
 
 ## Mappestruktur
 
 ```
-main.py                 Indgang: scheduler eller straks-kørsel (RUN_NOW), kalder load og ETL
+main.py                 Indgang: lægger procedurerne, så scheduler eller straks-kørsel (RUN_NOW), kalder load og ETL
 constants.py            Filnavne -> stg-tabeller, kolonneomdøbning, kolonner der droppes
 utils/
+  deploy_procedures.py  Lægger alle procedurer i sql/meta og sql/dw i én transaktion ved opstart
   get_engine.py         SQLAlchemy-engine fra DB_*-nøglerne
   load_stg.py           Læser filerne, parser multitype-filer, DELETE + to_sql i stg
   run_etl.py            EXEC dw.usp_master på rå pyodbc-forbindelse med autocommit
@@ -72,7 +73,7 @@ sql/
 Dockerfile, docker-compose.yaml, .github/workflows/docker-publish.yml
 ```
 
-**Tabeldefinitionerne (`CREATE TABLE`) for `stg`, `dw` og `meta` ligger i `sql/tables/`** — én fil pr. tabel i `sql/tables/<skema>/<tabel>.sql`, og skemaerne i `sql/tables/schemas.sql`. De er renset fra en SSMS-eksport og rummer kun struktur: kolonner, nøgler, indeks, standardværdier og kontroller. Rækkefølgen de skal oprettes i (fremmednøgler), står ikke nogen steder. Ændres en tabel, rettes dens fil og køres i hånden mod databasen, som procedurerne.
+**Tabeldefinitionerne (`CREATE TABLE`) for `stg`, `dw` og `meta` ligger i `sql/tables/`** — én fil pr. tabel i `sql/tables/<skema>/<tabel>.sql`, og skemaerne i `sql/tables/schemas.sql`. De er renset fra en SSMS-eksport og rummer kun struktur: kolonner, nøgler, indeks, standardværdier og kontroller. Rækkefølgen de skal oprettes i (fremmednøgler), står ikke nogen steder. Ændres en tabel, rettes dens fil og køres i hånden mod databasen — tabellerne lægges ikke ved opstart, som procedurerne gør.
 
 **Indholdet** af de dimensioner procedurerne læser men ikke fylder, ligger ikke i repoet: `dw.dim_date`, `dim_subject`, `dim_discipline`, `dim_exam_type`, `dim_class_type`, `dim_action_type`, `dim_referral_reason`, `dim_event_type`, `dim_absence_reason` (krævet af fremmednøglerne på de to fraværsfakta) og `dim_school_district` (statisk, lagt ind ved et migreringsscript der heller ikke er her).
 
@@ -90,7 +91,7 @@ Dockerfile, docker-compose.yaml, .github/workflows/docker-publish.yml
 2. `run_etl` kører `dw.usp_master`, som starter en kørsel i `meta.meta_run` og kalder trinene i fast rækkefølge: oprydning, udfyldning af fraværshuller, skoleårsetiketter, dimensioner, fakta, øjebliksbillede. Fejler et trin, markeres kørslen `failed`, og fejlen kastes videre.
 3. Hvert trin tager `@run_id`, logger sig selv i `meta.meta_run_step` med antal læste, indsatte, opdaterede og slettede rækker, og kaster videre ved fejl.
 
-Nyt trin: ny procedure i `sql/dw/` efter samme skabelon (`meta.usp_meta_start_step` / `finish_step` i `TRY`/`CATCH`), tilføj den i `usp_master` i den rigtige rækkefølge, og læg begge i databasen.
+Nyt trin: ny procedure i `sql/dw/` efter samme skabelon (`meta.usp_meta_start_step` / `finish_step` i `TRY`/`CATCH`), tilføj den i `usp_master` i den rigtige rækkefølge. Begge lægges i databasen ved næste opstart.
 
 ### Indlæsningsmønstre
 
